@@ -23,6 +23,8 @@ border-right: thin solid white;
 .mid{
     text-align: center;
     font-weight: bold;
+    font-family: BebasNeue;
+    font-stretch: expanded;
 }
 
 h1{
@@ -31,10 +33,6 @@ h1{
 .nav-link
 {
     text-align: center;
-}
-
-.navbar-nav{
-
 }
 
 .test{
@@ -63,10 +61,7 @@ h1{
 
 .nav-item:hover{
     background-color: #adf442;
-}
-
-.nav-link:active{
-    background-color: #adf442;
+    border-radius: 5px;
 }
 
 ul.navbar-nav{
@@ -85,9 +80,11 @@ ul.navbar-nav{
 }
 
 .heading{
-    font-family: 'Open Sans', sans-serif;
+    font-family: BebasNeue;
     font-weight: bold;
     margin-bottom: 20px;
+    font-size: 80px;
+    text-align: center;
 
 }
 .spanStyle{
@@ -98,5 +95,18 @@ ul.navbar-nav{
      display: block;
     margin: auto;
     width: 70%;
+    padding-top: 20px;
+}
+
+.mainText{
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #98999b;
+    letter-spacing: 2px;
+    
+}
+
+@font-face{
+    font-family: BebasNeue;
+    src: url(BebasNeue_Regular.otf);
 }
 
