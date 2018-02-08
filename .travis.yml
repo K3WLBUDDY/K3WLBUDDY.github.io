@@ -1,12 +1,12 @@
 language: ruby
 rvm:
-- 2.1
+- 2.5
 script: "bundle exec jekyll build"
 
 deploy:
   provider: pages
   skip-cleanup: true
-  github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+  github-token: $GITHUB_TOKEN  
   keep-history: true
   on:
     branch: master
