@@ -4,4 +4,4 @@ title: About
 permalink: /about/
 ---
 
-I'm a final year CS Student at SRM University. Here you'll find my thoughts on Machine Learning and Computer Graphics
+I'm a final year CS Student at SRM University. You will not find dank memes here. Just some random thoughts.
