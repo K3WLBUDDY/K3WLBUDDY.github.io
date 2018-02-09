@@ -4,4 +4,4 @@ title: About
 permalink: /about/
 ---
 
-I'm a final year CS Student at SRM University. You will not find dank memes here. Just some random thoughts.
+I'm a final year CS Student at SRM University. What you will find here is not Dank Memes but some random thoughts on things I like.
