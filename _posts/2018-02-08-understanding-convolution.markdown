@@ -29,7 +29,7 @@ Plotting this as a graph we get :
 
 <img src = "https://i.imgur.com/omRE7ju.jpg">
 
-Now let's take up another time function, say $$ g(t) $$. Just as the previous function $$ g(t) $$ is also time dependent and we're going to assign some random values to it :
+Now let's take up another time function, say $$ g(t) and just as above we're going to assign some random values to it :
 
 $$ g(0) = 2 $$
 
