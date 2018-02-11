@@ -27,7 +27,7 @@ $$ f(2) = 1 $$
 
 Plotting this as a graph we get :
 
-<img src = "https://lensdump.com/i/GrRNr.jpg">
+<img src = "https://i.lensdump.com/i/GrRNr.jpg">
 
 Now let's take up another time function, say $$ g(t) $$. Just as the previous function $$ g(t) $$ is also time dependent and we're going to assign some random values to it :
 
