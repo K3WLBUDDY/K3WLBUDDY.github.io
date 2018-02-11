@@ -57,7 +57,7 @@ So let's just reflect our function $$ g(t) $$ so that for $$ t = \tau $$ the fun
 
 Visually $$ g(t) $$ gets reflected as :
 
-<img src = "https://screenshotscdn.firefoxusercontent.com/images/e879f1b2-8695-4427-b363-0c92bff844cb.png"> 
+<img src = "https://i.imgur.com/Y18VuTT.jpg"> 
 
 Now let's start the sliding process. We're going to keep $$ f(t) $$ stationary and move the reflected $$ g(t) $$ over it left to right.
 
