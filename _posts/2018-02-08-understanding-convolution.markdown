@@ -27,7 +27,7 @@ $$ f(2) = 1 $$
 
 Plotting this as a graph we get :
 
-<img src = "../assets/images/blog1_1.JPG">
+<img src = "https://i.imgur.com/omRE7ju.jpg">
 
 Now let's take up another time function, say $$ g(t) $$. Just as the previous function $$ g(t) $$ is also time dependent and we're going to assign some random values to it :
 
@@ -39,7 +39,7 @@ $$ g(2) = 0 $$
 
 Plotting this we get :
 
-<img src = "https://screenshotscdn.firefoxusercontent.com/images/e606ade0-16d7-4d99-90c0-b86b14d34e53.png">
+<img src = "https://i.imgur.com/BfaKvwr.jpg">
 
 So far we have two functions $$ f(t) $$ and $$ g(t) $$, both with some random values and more importantly both are <strong>dependent on time</strong>.
 
