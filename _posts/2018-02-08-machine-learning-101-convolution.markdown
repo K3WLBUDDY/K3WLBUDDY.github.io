@@ -12,7 +12,7 @@ And Oh boy isn't Machine Learning full of bullcrap made up by God knows who just
 
 <strong> In this and the upcoming 2 or 3 posts we'll be tackling the first fallacy present in the Machine Learning Community : Convolutional Neural Networks</strong>
 
-Now, CNNs are a thing of beauty. People use them to trick Computers into thinking that they have the same power as the human eye (and sometimess <strong>even better</strong>).If you've seen computers tell what something in a Picture or a Video is, it's mostly a CNN spinning the wheels in the background. So let's start getting into CNN.
+Now, CNNs are a thing of beauty. People use them to trick Computers into thinking that they have the same power as the human eye (and sometime <strong>even better</strong>).If you've seen computers tell what something in a Picture or a Video is, it's mostly a CNN spinning the wheels in the background. So let's start getting into CNN.
 
 ### The C in CNN - Convolutions 
 
@@ -69,11 +69,33 @@ This way when we slide the function over the the times remain constant for both 
 
 Now let's start the sliding process. We're going to keep $$ f(t) $$ stationary and move the reflected $$ g(t) $$ over it left to right.
 
-Let's call the output $$ h(t) $$
+Let's call the output $$ h(t) $$.
 
-<strong>Step 1:</strong> When $$ t = 0 $$ 
-<strong>Step 2:</strong>
-<strong>Step 3:</strong>
-<strong>Step 4:</strong>
-<strong>Step 5:</strong>
+We're going to calcuate the value of the output by finding all the overlaps of both the functions at a particular time and multiply them
+
+To help the visualisation I've created a small animation that you can watch here : 
+
+<iframe width="480" height="270" src="https://www.youtube.com/embed/Jd_SpIOA85A" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+Let's see what happens step by step : 
+
+<strong>Step 1:</strong> When $$ t = 0 $$ the values of $$ f(0) $$ and $$ g(0) $$ overlap so we just multiply them to get the overall value for $$ h[0] $$ which is $$ 4$$
+
+
+<strong>Step 2:</strong> When $$ t = 1 $$ the overlaps are $$ [f(0), g(1)], [f(1), g[0)] $$ thereby the output is $$ h[1] = [f(0) * g(1)] + [f(1) * g(0)] $$ which adds up to $$ 7 $$
+
+
+We find the values of $$ h[2], h[3] and h[4] $$ in the same way; find the overlaps, multiply them and add.
+
+What we just did is find the convolution of Two functions.
+
+The convolution operation is denoted by a $$ * $$.
+
+Let's derive a general formula for Convolution : 
+
+Consider we have $$ n $$ distinct time values for which we're finding the example.
+
+
+
+
 
