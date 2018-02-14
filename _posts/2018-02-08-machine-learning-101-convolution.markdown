@@ -85,7 +85,7 @@ Let's see what happens step by step :
 <strong>Step 2:</strong> When $$ t = 1 $$ the overlaps are $$ [f(0), g(1)], [f(1), g[0)] $$ thereby the output is $$ h[1] = [f(0) * g(1)] + [f(1) * g(0)] $$ which adds up to $$ 7 $$
 
 
-We find the values of $$ h[2], h[3] and h[4] $$ in the same way; find the overlaps, multiply them and add.
+We find the values of $$ h[2], h[3] $$ and $$ h[4] $$ in the same way; find the overlaps, multiply them and add.
 
 What we just did is find the convolution of Two functions.
 
@@ -93,7 +93,9 @@ The convolution operation is denoted by a $$ * $$.
 
 Let's derive a general formula for Convolution : 
 
-Consider we have $$ n $$ distinct time values for which we're finding the example.
+Consider we have $$ n $$ distinct time values for which we're finding the convolution. The above example had $$ n = 3 $$
+
+The formula is : $$ (f * g)(n) = \sum_{M = -M}^{+M} f[m]g[n - m] $$
 
 
 
