@@ -1,23 +1,30 @@
 ---
 layout: post
-title:  "Understanding the Convolution Process"
-excerpt: "A technical deep dive into what Convolution is"
+title:  "Machine Learning 101 - Convolution and its misuse"
+excerpt: "A technincal deep dive into what Convolution is and its screwed up usage in Machine Learning"
 date:   2018-02-08 22:00:00
 ---
 
-This is my first blog and a technical one at that. So please excuse me if the quality doesn't exactly blow your brains out. I'll try my best to keep improving as time goes by.
 
-Soppy stuff aside let's get on with Convolution. 
+If you're a Computer Science student right now, you would've come across the term <strong>Machine Learning</strong> being thrown all around you. ML has taken over the position that was previously held by Cloud Computing; the position of the most marketed Buzz word used with the utmost disrespect for technical accuracy. 
 
-### The Basics
+And Oh boy isn't Machine Learning full of bullcrap made up by God knows who just to make the life of noobies that bit more difficult.
 
-I'd like to define something by first giving an example and deriving the definition intuitively from it.
+<strong> In this and the upcoming 2 or 3 posts we'll be tackling the first fallacy present in the Machine Learning Community : Convolutional Neural Networks</strong>
 
-So, here's a small example
+Now, CNNs are a thing of beauty. People use them to trick Computers into thinking that they have the same power as the human eye (and sometimess <strong>even better</strong>).If you've seen computers tell what something in a Picture or a Video is, it's mostly a CNN spinning the wheels in the background. So let's start getting into CNN.
 
-Consider a time dependent function $$ f(t) $$. 
+### The C in CNN - Convolutions 
 
-For the sake of this example let's assume the values of $$ f(t) $$ for $$ t $$ $$ \in \{0,1,2\} $$ as :
+Let's try to understand what Convolution exactly is. This will later on help us tackle other important details of how computers can act as a low key Human Eye.
+
+We're going to start off with a small example. 
+
+Consider a function $$ f(t) $$ where $$ t $$ stands for time. 
+
+For this example we're going to consider only integer values for time i.e only the seconds and not milli or nanoseconds. In other words we're going to work only with discrete values of time.
+
+Now let's assume the values of $$ f(t) $$ for $$ t $$ $$ \in \{0,1,2\} $$ as :
 
 $$ f(0) = 2 $$
 
@@ -29,7 +36,7 @@ Plotting this as a graph we get :
 
 <img src = "https://i.imgur.com/omRE7ju.jpg">
 
-Now let's take up another time function, say $$ g(t) and just as above we're going to assign some random values to it :
+Now let's take up another time function, say $$ g(t) $$ and just as above we're going to assign some random values to it :
 
 $$ g(0) = 2 $$
 
@@ -43,7 +50,7 @@ Plotting this we get :
 
 So far we have two functions $$ f(t) $$ and $$ g(t) $$, both with some random values and more importantly both are <strong>dependent on time</strong>.
 
-Did I tell you both the functions are time dependent? I guess I did. A lot of times. And with good reason for it too.
+Did I tell you both the functions are time dependent? I guess I did. A lot of times. And with good reason for it too which we will come to in a bit.
 
 Now we're going to see what happens when we pass $$ g(t) $$ over $$ f(t) $$
 
@@ -51,11 +58,12 @@ Visualise <sub>(yeah, I follow the Brits)</sub> the graph of $$ f(t) $$ in your 
 
 Now imagine the graph of $$ g(t) $$ sliding into your mind from the left. 
 
-When the graphs of both the functions start to overlap you'll notice that $$ f(0) $$ is being overlapped by $$ g(2) $$. This isn't good as we want to see how the functions react with each other at the same time.
+When the graphs of both the functions start to overlap you'll notice that $$ f(0) $$ is being overlapped by $$ g(2) $$. Now this doesn't bode well for us because we are in time domain and so we need to know how both the functions react at the same instance. That means knowing what happens when $$ f(0) $$ reacts with $$ g(0) $$.
 
-So let's just reflect our function $$ g(t) $$ so that for $$ t = \tau $$ the function  $$ f(\tau) $$ will be overlapped with $$ g(t-\tau) $$
 
-Visually $$ g(t) $$ gets reflected as :
+So let's just reflect our function $$ g(t) $$ as shown below:
+
+This way when we slide the function over the the times remain constant for both the functions.
 
 <img src = "https://i.imgur.com/Y18VuTT.jpg"> 
 
@@ -63,12 +71,9 @@ Now let's start the sliding process. We're going to keep $$ f(t) $$ stationary a
 
 Let's call the output $$ h(t) $$
 
-$$ t = 0 $$ $$ f(0) $$ gets overlapped with $$ g(0) $$ the overall value of the output is going to be $$ f(0) * g(0) $$ which is equal to $$ 4 $$
-
-In the next step $$ f(1) $$ gets overlapped with $$ g(0) $$ while $$ f(0) $$ gets overlapped with $$ g(1) $$. So the output is going to be $$ (f(0)*g(1)) + (f(1)*g(0)) $$
-which is equal to $$ something $$
-
-In the next step $$ f(2) $$ gets overlapped with $$ g(0) $$, $$ f(1) $$ with $$ g(1) $$ and $$ f(0) $$ gets overlapped with $$ g(2) $$
-
-### Starting from the Basics - Convolution in 1D
+<strong>Step 1:</strong> When $$ t = 0 $$ 
+<strong>Step 2:</strong>
+<strong>Step 3:</strong>
+<strong>Step 4:</strong>
+<strong>Step 5:</strong>
 
