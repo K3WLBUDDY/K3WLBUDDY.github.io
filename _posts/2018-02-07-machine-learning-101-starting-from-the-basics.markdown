@@ -99,6 +99,13 @@ Equation 5 : $$ 10000 = 435(\theta_1) + \theta_2 + 10(\theta_3) $$
 
 <strong>SPOILER ALERT - It won't work</strong>
 
+We have 5 Equations and 3 unknown variables. By using high school Algebra we should be able to solve for the three weights right? Once we get their values we should be able to plug in the values of our house to figure out the rent for it. That shouldn't be too hard. 
+
+Considering Equation 1, 2 and 3 :
+
+There isn't any solution. 
+
+
 
 
 
