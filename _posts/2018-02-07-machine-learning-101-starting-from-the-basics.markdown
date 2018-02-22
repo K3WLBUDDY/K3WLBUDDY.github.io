@@ -95,15 +95,17 @@ Equation 4 : $$ 37000 = 1800(\theta_1) + 3(\theta_2) + \theta_3 $$
 
 Equation 5 : $$ 10000 = 435(\theta_1) + \theta_2 + 10(\theta_3) $$
 
-### Method 1 - Solving as a System of Linear Equations in 3 Variables 
+### Method 1 - Solving via Substitution
 
 <strong>SPOILER ALERT - It won't work</strong>
 
-We have 5 Equations and 3 unknown variables. By using high school Algebra we should be able to solve for the three weights right? Once we get their values we should be able to plug in the values of our house to figure out the rent for it. That shouldn't be too hard. 
+We could use some high school algebra to find the values of the Three weights right? There are atleast three equations we could use from the set of 5 find the respective weights but there is no guarantee that the values we get would fit for the entire dataset. 
 
-Considering Equation 1, 2 and 3 :
+Keep in mind that real life datasets are in the order of ten thousands so localizing your solution to just a few is a terrible way to go ahead. 
 
-There isn't any solution. 
+Also there is no guarantee that the set of equations are solvable either. So there are too many obstacles to face and hence treating the problem of finding weights as a simple solve for the weights by substitution is not the way to go ahead.
+
+
 
 
 
