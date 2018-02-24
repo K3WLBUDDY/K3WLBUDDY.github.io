@@ -18,9 +18,9 @@ Imagine that you're the owner of a house and you're looking to rent it out to ma
 
 Now, when it comes to deciding the rent for a house, a lot of factors come into play. Things like the Square Feet occupied, the amenities provided like covered car parking etc. all play a role in the final price.
 
-To get a clearer picture I've collected some rental prices for homes in T. Nagar from 99acres.com. To make the understanding easier and for brevity I've taken into consideration only 3 features that decide the rent.
+To get a clearer picture I've collected some rental prices for homes in Chennai from 99acres.com. To make the understanding easier and for brevity I've taken into consideration only 3 features that decide the rent.
 
-### Rental prices in T. Nagar
+### Rental prices in Chennai
 
 <table>
 <tr>
@@ -73,17 +73,7 @@ $$ rent[i] =  \theta_1 * size[i] + \theta_2 * bhk[i] + \theta_3 * age[i] $$
 
 Here $$ i $$ refers to the i-th entry.
 
-For example if the value of $$ i $$ is $$ 1 $$ then $$ rent[1] = 35000 , size[1] = 1200, bhk[1] = 3, age[1] = 10$$.
-
-The variables $$ \theta_1 , \theta_2 $$ and $$ \theta_3 $$ are called weights. You can think of them as the importance each feature plays in the final price of the house. For example if the No. of Bedrooms is more important in deciding the rent than the age of the house then $$ \theta_2 > \theta_3 $$ but if the size of the House is the biggest deciding factor than anything else then $$ \theta_1 > \theta_2 > \theta_3 $$.
-
-Now our goal is to find the values of the Three weights 
-
-<strong>One VERY important thing: </strong>The values of the weights are not unique to each individual example in our dataset. We have to find a value for the weights such that all the examples in our dataset obey the equation stated above.
-
-## Finding the Weights
-
-I'm going to convert all the examples in our dataset into an equation form
+Converting our dataset into the above form we get:
 
 Equation 1 : $$ 35000 = 1200(\theta_1) + 3(\theta_2) + 10(\theta_3) $$
 
@@ -95,23 +85,17 @@ Equation 4 : $$ 37000 = 1800(\theta_1) + 3(\theta_2) + \theta_3 $$
 
 Equation 5 : $$ 10000 = 435(\theta_1) + \theta_2 + 10(\theta_3) $$
 
-### Method 1 - Solving via Substitution
+The variables $$ \theta_1 , \theta_2 $$ and $$ \theta_3 $$ are called weights. You can think of them as the importance each feature plays in the final price of the house. For example if the No. of Bedrooms is more important in deciding the rent than the age of the house then $$ \theta_2 > \theta_3 $$ but if the size of the House is the biggest deciding factor than anything else then $$ \theta_1 > \theta_2 > \theta_3 $$.
 
-<strong>SPOILER ALERT - It won't work</strong>
+Now here's the important bit:
 
-We could use some high school algebra to find the values of the Three weights right? There are atleast three equations we could use from the set of 5 find the respective weights but there is no guarantee that the values we get would fit for the entire dataset. 
+>Machine Learning is almost entirely about finding values of the weights 
 
-Keep in mind that real life datasets are in the order of ten thousands so localizing your solution to just a few is a terrible way to go ahead. 
-
-Also there is no guarantee that the set of equations are solvable either. So there are too many obstacles to face and hence treating the problem of finding weights as a simple solve for the weights by substitution is not the way to go ahead.
+<strong>One VERY important thing: </strong>The values of the weights are not unique to each individual example in our dataset. We have to find a value for the weights such that all the examples in our dataset obey the equation stated above.
 
 
+Hopefully by now you have a small-ish idea of what Machine Learning is about.
 
+## Finding the Weights - <a href="https://www.youtube.com/watch?v=uL0ROeZw7wA">How hard can it be?</a>
 
-
-
-
-
-
-
-
+To make life easier I'm going to ignore the BHK and age of 
