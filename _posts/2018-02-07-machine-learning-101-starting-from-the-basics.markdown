@@ -4,30 +4,34 @@ title:  "Machine Learning 101 - Starting from the Basics"
 excerpt: "Understanding the building blocks of the Machine Learning world"
 date:   2018-02-07 22:00:00
 ---
-This is the first in a series of blog posts that I've elegantly called <strong>"Machine Learning 101"</strong>. The main purpose of these posts is for me to remind myself of things I've learnt ( I have the habit of forgetting things easily ) and to help any noob understand a lot of things about Machine Learning. If you're new to ML and have absolutely no clue whatsoever about it then this is one of the places to start from. 
+This is the first in a series of blog posts I'm calling <strong>"Machine Learning 101"</strong>. The main purpose of this series is for me to remind myself of things I've learnt ( I have the habit of forgetting things ) and help any noob understand a lot of things about Machine Learning. If you're new to ML and have absolutely no clue whatsoever about it then this is one of the places to start learning from. 
 
-So without further ado, let's get into ML - 101. This is a long post so get some chips or something.
+So, let's dive into ML - 101.
 
 ## Getting the intuition for Machine Learning
 
-For the purpose of this post, I'd like you to forget whatever passing comments you would have heard about Machine Learning from your nerdy friends or the internet. We're going to start on a blank slate.
+The first thing I'd want you to do is forget whatever you would've heard about Machine Learning. Words like CNN, LSTM, R-CNN etc. should mean nothing to you. We'll come to those topics in due time but for now the goal is to understand the basics of Machine Learning. 
 
-I'm going to start off with an example.
+I'm going to start off on a blank slate with a small example
 
-Imagine that you're the owner of a house and you're looking to rent it out to make some extra $$$ on the side. You're having a problem figuring out what the monthly rent should be. 
+Imagine you're the owner of a house and looking to rent it out to make some extra $$$ on the side. You're having a problem figuring out what the monthly rent should be. Ideally the rent shouldn't be too expensive so that nobody bothers about your place nor should it be too cheap so that you're making no cash from it. 
 
 Now, when it comes to deciding the rent for a house, a lot of factors come into play. Things like the Square Feet occupied, the amenities provided like covered car parking etc. all play a role in the final price.
 
-To get a clearer picture I've collected some rental prices for homes in Chennai from 99acres.com. To make the understanding easier and for brevity I've taken into consideration only 3 features that decide the rent.
+Our job for now is going to be: Given the necessary details about a house i.e Area, No. of Bedrooms etc., predict a reasonable rent for it.
+
+The best way to define what "Reasonable Rent" means is to get details about the rental prices of other properties and extrapolate information from it.
+
+And I've done just that by scraping 99acres.com and obtaining around 8000 properties and their rental information. Below you'll find a few of them. Analyze the data for a minute or two.
 
 ### Rental prices in Chennai
 
 <table>
 <tr>
-<th>Square Feet (sq.ft)</th>
+<th>Area (sq.ft)</th>
 <th>No. of Bedrooms (BHK)</th>
 <th>Age (years)</th>
-<th>Rent per Month (&#x20b9;)</th>
+<th>Rent per month (&#x20b9;)</th>
 </tr>
 <tr>
 <td>1200</td>
@@ -42,16 +46,16 @@ To get a clearer picture I've collected some rental prices for homes in Chennai 
 <td>14000</td>
 </tr>
 <tr>
-<td>1200 </td>
+<td>1000 </td>
 <td>2</td>
 <td>10</td>
 <td>25000</td>
 </tr>
 <tr>
-<td>1800</td>
+<td>1500</td>
 <td>3</td>
 <td>1</td>
-<td>37000</td>
+<td>38000</td>
 </tr>
 <tr>
 <td>435</td>
@@ -60,8 +64,6 @@ To get a clearer picture I've collected some rental prices for homes in Chennai 
 <td>10000</td>
 </tr>
 </table>
-
-Have a look at the table and analyze the data for a minute or two.
 
 The first thing to note is that the final rent depends on three <strong>features</strong> namely the Area, BHK and age. 
 
@@ -79,9 +81,9 @@ Equation 1 : $$ 35000 = 1200(\theta_1) + 3(\theta_2) + 10(\theta_3) $$
 
 Equation 2 : $$ 14000 = 600(\theta_1) + \theta_2 + 5(\theta_3) $$
 
-Equation 3 : $$ 25000 = 1200(\theta_1) + 2(\theta_2) + 10(\theta_3) $$
+Equation 3 : $$ 25000 = 1000(\theta_1) + 2(\theta_2) + 10(\theta_3) $$
 
-Equation 4 : $$ 37000 = 1800(\theta_1) + 3(\theta_2) + \theta_3 $$
+Equation 4 : $$ 38000 = 1500(\theta_1) + 3(\theta_2) + \theta_3 $$
 
 Equation 5 : $$ 10000 = 435(\theta_1) + \theta_2 + 10(\theta_3) $$
 
@@ -91,11 +93,100 @@ Now here's the important bit:
 
 >Machine Learning is almost entirely about finding values of the weights 
 
-<strong>One VERY important thing: </strong>The values of the weights are not unique to each individual example in our dataset. We have to find a value for the weights such that all the examples in our dataset obey the equation stated above.
+<strong>NOTE: </strong>The values of the weights are not unique to each individual example in our dataset. We have to find a value for the weights such that all the examples in our dataset obey the equation stated above.
 
 
-Hopefully by now you have a small-ish idea of what Machine Learning is about.
+Hopefully by now you have a very small-ish idea of what Machine Learning is about.
 
 ## Finding the Weights - <a href="https://www.youtube.com/watch?v=uL0ROeZw7wA">How hard can it be?</a>
 
-To make life easier I'm going to ignore the BHK and age of 
+To make life easier for us I'm going to remove two features from our dataset and have just the Area of each house as the lone feature.
+
+This is what our dataset looks like now:
+
+<table>
+<tr>
+<th>Area (sq.Ft)</th>
+<th>Rent per month (&#x20b9;)</th>
+</tr>
+<tr>
+<td>1200</td>
+<td>35000</td>
+</tr>
+<tr>
+<td>600</td>
+<td>14000</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>25000</td>
+</tr>
+<tr>
+<td>1500</td>
+<td>38000</td>
+</tr>
+<tr>
+<td>435</td>
+<td>10000</td>
+</tr>
+</table>
+
+(You can get the complete datset of 8000 properties <a href = "https://raw.githubusercontent.com/K3WLBUDDY/K3WLBUDDY.github.io/master/datasets/housingPrices.csv ">here</a>)
+
+Our equations will now become : 
+
+Equation 1 : $$ 35000 = 1200(\theta_1) $$
+
+Equation 2 : $$ 14000 = 600(\theta_1)  $$
+
+Equation 3 : $$ 25000 = 1000(\theta_1)  $$
+
+Equation 4 : $$ 38000 = 1500(\theta_1) $$
+
+Equation 5 : $$ 10000 = 435(\theta_1)  $$
+
+Now let's tackle the biggie : Finding the value of $$\theta_1$$
+
+### Method 1 : Solving by substitution 
+
+One easy way to find the value of $$\theta_1$$ would be to just solve the equations. They technically are linear equations in just one variable right?
+
+Problem is we want our value of $$\theta_1$$ to fit all our examples. Not just one. Let me illustrate more by solving the equations.
+
+By solving Equation 1, the value of $$\theta_1$$ will become $$29.16$$. Let's plug that into Equation 2 and see what happens.
+
+$$ 14000 = 600(\theta_1)  $$
+
+$$ RHS = 600(\theta_1) $$
+
+$$     = 600 * 29.16 $$
+
+$$     = 17496 $$
+
+Welp. That didn't work obviously. The $$ RHS $$ we calculated is no way near the $$ LHS $$. 
+
+You could say the <strong>error</strong> or the <strong>loss</strong> in our calcuation was $$ 17496 - 14000 $$ which is $$ 3496 $$.
+
+After substituting the value of $$\theta_1$$ in all our equations the loss for each Equation turns out to be : 
+
+Loss 1 = $$ 0 $$
+
+Loss 2 = $$ 3496 $$
+
+Loss 3 = $$ 4160 $$
+
+Loss 4 = $$ 5740 $$
+
+Loss 5 = $$ 2684.6 $$
+
+That's pretty horrible in terms of accuracy. We need to find a way where we can assign values to our weight $$\theta_1$$ in a way that minimizes the loss for each and every individual example from our dataset as much as possible. It'd be pretty impossible to get a Loss of $$ 0 $$ for the entire dataset so we have to aim to obtain values for weights that would keep the loss as low as possible. 
+
+### Method 2 - Randomly initializing values
+
+No. Just no. Why? 
+
+You could take an entire decade trying to find the correct combination of weights.
+
+### Method 3 - The most commonly used method for finding weights 
+
+Plotting our dataset we get the following graph : <img src ="https://i.imgur.com/RAD4qn5.jpg">
