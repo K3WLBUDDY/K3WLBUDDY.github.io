@@ -151,9 +151,11 @@ Now let's tackle the biggie : Finding the value of $$\theta_1$$
 
 One easy way to find the value of $$\theta_1$$ would be to just solve the equations. They technically are linear equations in just one variable right?
 
-Problem is we want our value of $$\theta_1$$ to fit all our examples. Not just one. Let me illustrate more by solving the equations.
+The problem is we want our value of $$\theta_1$$ to fit all our examples. Not just one. Let me illustrate more by solving the equations.
 
-By solving Equation 1, the value of $$\theta_1$$ will become $$29.16$$. Let's plug that into Equation 2 and see what happens.
+By solving Equation 1, the value of $$\theta_1$$ will become $$29.16$$. 
+
+Let's plug that into Equation 2 and see what happens.
 
 $$ 14000 = 600(\theta_1)  $$
 
@@ -163,9 +165,11 @@ $$     = 600 * 29.16 $$
 
 $$     = 17496 $$
 
-Welp. That didn't work obviously. The $$ RHS $$ we calculated is no way near the $$ LHS $$. 
+Welp. That didn't work obviously. While the $$ LHS $$ is 14000, when substituting the value of $$ \theta_1 $$ we got from Equation 1, the $$ RHS $$ value is not even close.
 
-You could say the <strong>error</strong> or the <strong>loss</strong> in our calcuation was $$ 17496 - 14000 $$ which is $$ 3496 $$.
+To analyze how pathetic our method is let's calculate the <strong>error</strong> in our answer by subtracting the value we <strong>predicted</strong> with the given answer.
+
+For equation 2 the <strong>error</strong> or the <strong>loss</strong> in our calcuation was $$ 17496 - 14000 $$ which is $$ 3496 $$.
 
 After substituting the value of $$\theta_1$$ in all our equations the loss for each Equation turns out to be : 
 
@@ -183,8 +187,23 @@ That's pretty horrible in terms of accuracy. We need to find a way where we can 
 
 ### Method 2 - Randomly initializing values
 
-No. Just no. Why? 
+Almost all programming languages have a library function that allows you to randomly generate numbers. What if we used the output of such a function to initialize $$ \theta_1 $$ and check what the loss is. If the loss is too high we can just generate a new random number and loop the same code again.
 
+The logic in pseudocode would be like this :
+
+{% highlight c %} 
+float theta_1 = getRandomNumber;
+float loss = computeLoss(theta_1);
+float newLoss;
+
+for(int i = 0; i < 1000; i++)
+{
+    theta_1 = getRandomNumber;
+    newLoss = computeLoss(theta_i);
+    if(newLoss < loss)
+        loss = newLoss;
+}
+{% endhighlight %}
 You could take an entire decade trying to find the correct combination of weights.
 
 ### Method 3 - The most commonly used method for finding weights 
