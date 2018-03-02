@@ -183,6 +183,17 @@ Loss 4 = $$ 5740 $$
 
 Loss 5 = $$ 2684.6 $$
 
+Things are not looking great. Let's get an idea of how pathetic our results are by getting an average loss across our mini dataset.
+
+One classical way doing that would be to just add all the losses of every equation and divide them by the total number of data points. The technical term for this operation is <strong>Mean Absolute Error</strong> or <strong>MAE</strong>
+
+Mathematically  :
+
+$$MAE =   \dfrac{\sum\limits_{i=1}^{n}\lvert{Y_{i}-X_{i}}\rvert} {n}$$. Here $$ Y_{i} $$ is the Predicted value for the $$i$$th example and $$ X_{i} $$ is the correct value given in the dataset
+
+Applying the above formula the average loss ends up being $$ 3216.12 $$
+
+
 That's pretty horrible in terms of accuracy. We need to find a way where we can assign values to our weight $$\theta_1$$ in a way that minimizes the loss for each and every individual example from our dataset as much as possible. It'd be pretty impossible to get a Loss of $$ 0 $$ for the entire dataset so we have to aim to obtain values for weights that would keep the loss as low as possible. 
 
 ### Method 2 - Randomly initializing values
@@ -204,6 +215,8 @@ for(int i = 0; i < 1000; i++)
         loss = newLoss;
 }
 {% endhighlight %}
+
+
 You could take an entire decade trying to find the correct combination of weights.
 
 ### Method 3 - The most commonly used method for finding weights 
