@@ -189,7 +189,7 @@ One classical way doing that would be to just add all the losses of every equati
 
 Mathematically  :
 
-$$MAE =   \dfrac{\sum\limits_{i=1}^{n}\lvert{Y_{i}-X_{i}}\rvert} {n}$$. Here $$ Y_{i} $$ is the Predicted value for the $$i$$th example and $$ X_{i} $$ is the correct value given in the dataset
+$$MAE =   \dfrac{\sum\limits_{i=1}^{n}\lvert{Y_{i}-X_{i}}\rvert} {n}$$. Here $$ Y_{i} $$ is the Predicted value for the $$i$$th example and $$ X_{i} $$ is the correct value given in the dataset.
 
 Applying the above formula the average loss ends up being $$ 3216.12 $$
 
