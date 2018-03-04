@@ -1,69 +1,88 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
+#include "csvRead.h"
 
-
-float computeLoss(float *LHS, float *RHS, float weight)
+float computeLoss(csv *c, float weight)
 {
-    float loss = 0;
-    float *temp = calloc(5, sizeof(float));
+    long double loss = 0;
+    float *temp = calloc(c->rows, sizeof(float));
 
-    for(int i = 0; i < 5; i++)
+    for(int i = 0; i < c->rows; i++)
     {
-        temp[i] = RHS[i] * weight;
-        loss += (abs(temp[i] - LHS[i]));
+        temp[i] = c->vals[i][0] * weight;
+        loss += (abs(temp[i] - c->vals[i][1]));
     }
 
-    return loss; 
+    free(temp);
+    return (loss/c->rows); 
+}
+
+float computeSquaredLoss(csv *c, float weight)
+{
+    long double loss = 0;
+    float *temp = calloc(c->rows, sizeof(float));
+
+    for(int i = 0; i < c->rows; i++)
+    {
+        temp[i] = c->vals[i][0] * weight;
+        loss += pow(abs(temp[i] - c->vals[i][1]), 2);
+    }
+    free(temp);
+
+    return (pow(loss, 0.5)/c->rows);
 }
 
 int main(int argc, char **argv)
 {
-    float *LHS = calloc(5, sizeof(float));
-    float *RHS = calloc(5, sizeof(float));
-    srand (time(0));
-    float weight = (float)rand()/(float)(RAND_MAX/1000.0);
-    float bestWeight;
-    //float weight = rand() % 100 + 1;
 
-    LHS[0] = 35000;
-    LHS[1] = 14000;
-    LHS[2] = 25000;
-    LHS[3] = 38000;
-    LHS[4] = 10000;
-
-    RHS[0] = 1200;
-    RHS[1] = 600;
-    RHS[2] = 1000;
-    RHS[3] = 1500;
-    RHS[4] = 435;
-
-    float loss = computeLoss(LHS, RHS, weight);
-    float newLoss;
-    
-    for(int i = 0; i < 100000; i++)
+    if(argc < 2)
     {
-        //weight = rand() % 100 + 1;
-        weight = (float)rand()/(float)(RAND_MAX/1000.0);
-        newLoss = computeLoss(LHS, RHS, weight);
-        //printf("\n New loss after %d iterations : %f", i, newLoss);
+        printf("\n Usage : ./test <PATH TO CSV FILE>");
+        return(-1);
+    }
+
+    csv c = csvRead(argv[1]);
+    
+    srand (time(NULL));
+    float weight = (float)rand()/(float)(RAND_MAX/100.0);
+    float bestWeight;
+    float bestWeight2;
+    float loss = computeLoss(&c, weight);
+    float lossSq = computeSquaredLoss(&c, weight);
+    
+    float newLoss;
+    float newLossSq;
+    
+    for(int i = 0; i < 10000; i++)
+    {
+        weight = (float)rand()/(float)(RAND_MAX/100.0);
+        newLoss = computeLoss(&c, weight);
         if(newLoss < loss)
         {    
             loss = newLoss;
             bestWeight = weight;
         }
-        printf("\n Loss after %d iterations : %f", i, loss);
-        /*
-        if(loss <= 7375.0)
-        {
-            printf("\n WTF");
-            printf("\n WEight : %d", weight);
-            return(0);
+
+        weight = (float)rand()/(float)(RAND_MAX/100.0);
+        newLossSq = computeSquaredLoss(&c, weight);
+        
+        if(newLossSq < lossSq)
+        {    
+            lossSq = newLossSq;
+            bestWeight2 = weight;
         }
-        */
+        printf("\n Loss after %i iteartions : %f \t Loss after %i iteartions : %f", i, loss,i,lossSq);
     }
 
-    printf("\n Final Weights : %f", bestWeight);
+    printf("\n Best Loss : %f \t Best Loss Sq : %f", loss, lossSq);
+    printf("\n Best Weight : %f \t Best Weight Sq : %f",bestWeight, bestWeight2);
 
+    weight = 29.16;
+    loss = computeSquaredLoss(&c, weight);
+
+    printf("\n NEW LOSS : %f", loss);
+    
     
 }
