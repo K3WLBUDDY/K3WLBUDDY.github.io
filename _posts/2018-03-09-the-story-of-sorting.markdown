@@ -21,4 +21,6 @@ Merge the two points and we arrive at our solution in absolutely no time.
 
 Now let's try that again for some practice. Here's a new list : 
 
-$$ 
+$$ 3, 7, 34, 12, 67, 1, 7, 78, 12, 56, 23, 123, 67, 69, 34, 56, 13, 90, 45, 46, 64, 111, 90 $$
+
+Not that easy now, eh?
