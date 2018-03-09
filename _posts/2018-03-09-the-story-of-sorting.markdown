@@ -21,11 +21,11 @@ Merge the two points and we arrive at our solution in absolutely no time.
 
 Now let's try that again for some practice. Here's a new list : 
 
-$$ 1200, 35000
-600, 14000
+$$ 1200, 35000 $$
+$S 600, 14000 $$
 1200, 25000
-1800, 37000
-435, 10000
+$ 1800, 37000
+$ $ 435, 10000
 1200 , 14000
 2174 , 50000
 1600 , 20001
