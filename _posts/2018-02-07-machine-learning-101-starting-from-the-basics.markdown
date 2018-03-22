@@ -194,7 +194,7 @@ $$MAE =   \dfrac{\sum\limits_{i=1}^{n}\lvert{Y_{i}-X_{i}}\rvert} {n}$$. Here $$ 
 Applying the above formula the average loss ends up being $$ 3216.12 $$
 
 
-That's pretty horrible in terms of accuracy. We need to find a way where we can assign values to our weight $$\theta_1$$ in a way that minimizes the loss for each and every individual example from our dataset as much as possible. It'd be pretty impossible to get a Loss of $$ 0 $$ for the entire dataset so we have to aim to obtain values for weights that would keep the loss as low as possible. 
+That's not exactly great in terms of accuracy. We need to find a way where we can assign values to our weight $$\theta_1$$ in a way that minimizes the $$ MAE $$ as much as possible. It'd be pretty impossible to get a Loss of $$ 0 $$ for the entire dataset so we have to aim to obtain values for weights that would keep the loss as low as possible. 
 
 ### Method 2 - Randomly initializing values
 

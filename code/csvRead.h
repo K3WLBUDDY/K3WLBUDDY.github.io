@@ -8,7 +8,6 @@ typedef struct csv
     int rows;
     int cols;
     int nEntries;
-    char ***values;
     float **vals;
 }csv;
 

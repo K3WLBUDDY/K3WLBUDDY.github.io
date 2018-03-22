@@ -67,13 +67,13 @@ int main(int argc, char **argv)
 
         weight = (float)rand()/(float)(RAND_MAX/100.0);
         newLossSq = computeSquaredLoss(&c, weight);
-        
+
         if(newLossSq < lossSq)
         {    
             lossSq = newLossSq;
             bestWeight2 = weight;
         }
-        printf("\n Loss after %i iteartions : %f \t Loss after %i iteartions : %f", i, loss,i,lossSq);
+        //printf("\n Loss after %i iteartions : %f \t Loss after %i iteartions : %f", i, loss,i,lossSq);
     }
 
     printf("\n Best Loss : %f \t Best Loss Sq : %f", loss, lossSq);
@@ -83,6 +83,8 @@ int main(int argc, char **argv)
     loss = computeSquaredLoss(&c, weight);
 
     printf("\n NEW LOSS : %f", loss);
+
+    csvDelete(&c);
     
     
 }
