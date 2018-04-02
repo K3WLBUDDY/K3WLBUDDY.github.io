@@ -23,4 +23,14 @@ Now let's try that again for some practice. Here's a new list :
 
 $$ 3, 7, 34, 12, 67, 1, 7, 78, 12, 56, 23, 123, 67, 69, 34, 56, 13, 90, 45, 46, 64, 111, 90 $$
 
-Not that easy now, eh?
+Not that easy now, eh? For huge lists we're going to have to use sorting algorithms so that the Computer can do the grudge work while we can slack off.
+
+In this post, I'll be taking you on a tour of the various Sorting algorithms that have been created to solve this "trivial" problem of Sorting a set of numbers. We're going to start off with some easy algorithms and finally touch upon some of the wackiset solutions that human beings have thought of just to save on that extra 0.001 millisecond.
+
+### 1. Bubble Sort
+
+The first sorting algorithm that everyone comes across and one of the most useless algorithms present, Bubble sort is easy to understand at the expense of worthy results. 
+
+The algorithm compares adjacent numbers in a list and sorts them while constantly iterating forward.
+
+Take the list : 2, 4, 5, 6
