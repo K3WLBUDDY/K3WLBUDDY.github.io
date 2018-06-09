@@ -4,6 +4,8 @@ title:  "Machine Learning 101 - Starting from the Basics"
 excerpt: "Understanding the building blocks of the Machine Learning world"
 date:   2018-02-07 22:00:00
 ---
+
+# Work in Progress!! 
 This is the first in a series of blog posts I'm calling <strong>"Machine Learning 101"</strong>. The main purpose of this series is for me to remind myself of things I've learnt ( I have the habit of forgetting things ) and help any noob understand a lot of things about Machine Learning. If you're new to ML and have absolutely no clue whatsoever about it then this is one of the places to start learning from. 
 
 So, let's dive into ML - 101.

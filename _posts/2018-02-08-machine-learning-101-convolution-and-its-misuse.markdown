@@ -5,6 +5,7 @@ excerpt: "A technincal deep dive into what Convolution is and its screwed up usa
 date:   2018-02-08 22:00:00
 ---
 
+#Still Work in progress (I know I know, it's been quite a few months..)
 
 If you're a Computer Science student right now, you would've come across the term <strong>Machine Learning</strong> being thrown all around you. ML has taken over the position that was previously held by Cloud Computing; the position of the most marketed Buzz word used with the utmost disrespect for technical accuracy. 
 
