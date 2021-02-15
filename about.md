@@ -4,4 +4,5 @@ title: About
 permalink: /about/
 ---
 
-I'm a Software dude working at Nvidia. I post my learnings here purely for my reference as I tend to forget things quite easily.
+I'm a Graphics Engineer currently working at Nvidia. I post stuff I learn about here purely for my reference as I tend to forget things a lot.
+Most of my posts will be related to Computer Graphics.
